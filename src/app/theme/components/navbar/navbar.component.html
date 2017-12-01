@@ -1,0 +1,29 @@
+<nav class="nav dn-navbar fixed-top">
+    <div id="menu-toggler" class="transition" (click)="toggleMenu()"><i class="fa fa-bars"></i></div>
+    <a class="navbar-brand" routerLink="/" (click)="closeSubMenus()">
+        <img src="assets/img/logo/dn_logo_full.png" alt="" class="hidden-sm-down"> 
+        <img src="assets/img/logo/dn_logo.png" alt="" class="hidden-md-up"> 
+    </a>
+
+    <form role="search" class="app-search hide-ip5">
+        <input  id="key" 
+                type="text" 
+                placeholder="{{ defaultKey }}"
+                class="form-control"
+                name="key"
+                (blur)="onBlur($event)"
+                (focus)="onFocus($event)"
+                [(ngModel)] = "key"
+                (keyup.enter)="onKeyEnter($event)">
+        <a href="javascript:void(0)" (click)="search()">
+            <i class="dn-icon icon-search"></i>
+        </a>
+    </form>
+
+    <ul class="nav">
+        <li class="nav-item">
+           <dn-messages></dn-messages>
+        </li>
+    </ul> 
+    <!-- <i routerLink="/pages/search" class="dn-icon icon-search show-ip5" style="position: absolute; right: 5px; top: 8px;"></i> -->
+</nav>

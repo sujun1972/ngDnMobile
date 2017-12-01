@@ -1,0 +1,26 @@
+<!-- <dn-cat-menu></dn-cat-menu> -->
+
+<div id="site-slider">
+  <slick-carousel class="carousel text-center" *ngIf="carouselItems.length">
+    <div  *ngFor="let slide of carouselItems" class="slide">
+      <a [routerLink]="['/pages/video']" [queryParams]="{'id': slide.id}">
+        <img src="http://static.dnvod.tv/{{ slide.poster }}" />
+      </a>
+    </div>
+  </slick-carousel>
+</div>
+
+        <!-- <img src="http://via.placeholder.com/1240x404" /> -->
+        <!-- <div class="title">{{slide.title}}</div>, {'id': slide.id}-->
+
+<!-- <app-rec-news></app-rec-news>
+<div class="main-inner">
+  <dn-rec-videos></dn-rec-videos>
+  <dn-rec-drama></dn-rec-drama>
+  <app-rec-variety></app-rec-variety>
+  <app-rec-anime></app-rec-anime>
+  <app-rec-sport></app-rec-sport>
+  <app-rec-documentary></app-rec-documentary>
+  <app-rec-chinese></app-rec-chinese>
+  <app-rec-game></app-rec-game>
+</div> -->

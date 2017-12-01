@@ -1,0 +1,70 @@
+.more-link {
+    h4 {
+        margin-right: 2px;
+        display: inline-block;
+    }
+    .fa {
+        display: inline-block;
+    }
+}
+
+.videos {
+    .item {
+        overflow: hidden;
+    }
+    a {
+        color: #222;
+    }
+    .pic {
+        position: relative;
+    }
+    .bar {
+        position: absolute;
+        bottom: 0;
+        height: 68px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .2);
+        color: #fff;
+        padding: 4px 6px;
+        text-align: right;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    }
+    .title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .vc {
+        span {
+            margin-left: 4px;
+            color: #eeee21;
+            font-weight: 600;
+        }
+
+        &.hot {
+            span {
+                color: #ef2424;
+            }
+        }
+    }
+
+    .vs {
+        white-space: nowrap;
+        text-align: right;
+        float: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        direction: rtl;
+        width: 100%;
+    }
+
+}
+
+.image-frame {
+    img {
+        display: block;
+        max-height: 100%;
+        margin: 0 auto;
+    }
+}

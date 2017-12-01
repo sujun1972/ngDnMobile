@@ -1,0 +1,287 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+@-webkit-keyframes pulsate {
+  30% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  35% {
+    opacity: 1.0;
+  }
+  40% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+
+@-moz-keyframes pulsate {
+  30% {
+    -moz-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  35% {
+    opacity: 1.0;
+  }
+  40% {
+    -moz-transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+
+@-o-keyframes pulsate {
+  30% {
+    -o-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  35% {
+    opacity: 1.0;
+  }
+  40% {
+    -o-transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+
+@keyframes pulsate {
+ 30% {
+    transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  35% {
+    opacity: 1.0;
+  }
+  40% {
+    transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+
+.notifications {
+    list-style: none;
+    padding-left: 0;
+    font-size: 14px;
+    li{
+        display: inline-block;
+        margin-right: 14px;
+        a {
+            color: $navbar-text-color;
+            &:hover{
+                text-decoration: none;
+            }
+            &::after{ 
+                display: none;
+            }
+            &.dropdown-toggle span {
+                display: inline-block;
+                min-width: 10px;
+                padding: 2px 4px 2px 4px;
+                color: $notification-color;
+                vertical-align: baseline;
+                white-space: nowrap;
+                text-align: center;
+                border-radius: 2px;
+                text-shadow: none;
+                line-height: 10px;    
+                position: absolute;
+                top: -2px;
+                right: -14px;
+                font-size: 11px;
+
+                background-color: $notification-bg-color;
+                color: $notification-color;
+            }
+
+            .pulsate {
+                border-radius: 100px;
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                top: -18px;
+                right: -27px;
+                -webkit-animation: pulsate 8s ease-out;
+                -moz-animation: pulsate 8s ease-out;
+                -o-animation: pulsate 8s ease-out;
+                animation: pulsate 8s ease-out;
+                -webkit-animation-iteration-count: infinite;
+                -moz-animation-iteration-count: infinite;
+                -o-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                opacity: 0.0;
+                // border: 1px solid #e63e4d;
+            }
+        }
+    }
+}
+
+.top-dropdown-menu {
+    width: 316px;
+    left: auto;
+    //right: -30px;
+    right: -145px;
+    top: 23px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 0;
+    i.dropdown-arr {
+        position: absolute;
+        top: -12px;
+        //right: 30px;
+        right: 145px;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: rgba($navbar-text-color,0.8);
+    }
+    &:before{
+        content: none;
+    }
+    .header {
+        padding: 6px 12px;
+        font-size: 12px;   
+        background-color: $main-color;
+        span {
+            float: left;
+            color: rgba($navbar-bg-color,0.8);
+            letter-spacing: 0.03em;
+        }
+        a {
+            float: right;
+            margin-left: 12px;
+            text-decoration: none;
+            color: $navbar-bg-color;
+            &:hover{
+                color: rgba($navbar-bg-color,0.8);
+            }
+        }
+    }
+    .list {
+        max-height: 250px;
+        overflow: scroll;
+        overflow-x: hidden;
+        a {
+            float: left;
+            width: 100%;
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid rgba($main-color,0.1);
+            &:hover{
+                background: #f5f5f5;
+            }
+            h3{
+                font-size: 12px;
+                padding: 0;
+                margin: 0 0 4px 0;
+                color: #666666;
+            }
+
+        }
+        .progress{
+          //  height: 10px;
+            margin-bottom: 2px;
+        }
+        span{
+            font-size: 10px;
+        }
+        .list-content{
+            float: right;
+            width: 235px;
+        }
+        img{
+            float: left;
+            width: 45px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        p{
+            color: #7d7d7d;
+            font-size: 11px;
+            margin: 0;
+        }
+    }
+    .footer {
+        padding: 10px 12px;
+        border-top: 1px solid #ccc;
+        font-size: 12px; 
+        text-align: center;
+        a{
+            color: $main-color;
+            font-weight: bold;
+            &:hover{
+                opacity: 0.8;
+            }  
+        }
+    }
+}
+
+@media (max-width: 543px) { 
+    .message-menu .top-dropdown-menu.dropdown-menu {
+        right: -163px;
+        i.dropdown-arr{
+            right: 163px;
+        }
+    }
+    .notification-menu .top-dropdown-menu.dropdown-menu {
+        right: -122px;
+        i.dropdown-arr{
+            right: 122px;
+        }
+    }
+}
+
+//iphone 5
+@media (max-width: 320px) { 
+
+    .top-dropdown-menu {
+        width: 322px;
+    }
+    .message-menu .top-dropdown-menu.dropdown-menu {
+        right: -164px;
+        i.dropdown-arr{
+            right: 164px;
+        }
+    }
+    .notification-menu .top-dropdown-menu.dropdown-menu {
+        right: -124px;
+        i.dropdown-arr{
+            right: 124px;
+        }
+    }
+}
+
+
+.action {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.quote {
+    margin-left: 5px;
+    color: #00a8ec;
+}
+.text {
+    color: #ff0000 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message,
+.comment {
+    .vip {
+        display: inline-block;
+        padding: 5px 8px;
+        background-color: #ffa100;
+        color: #fff;
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: 600;
+
+        &.super {
+            background-color: #ff0000;
+        }
+    }
+}
+
+

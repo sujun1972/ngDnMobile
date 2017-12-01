@@ -1,0 +1,279 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+#sidebar-userinfo {
+    padding-top: 5px;
+    .userinfo-row {
+        padding-left: 80px;
+        position: relative;
+        margin-bottom: 5px;
+
+        img {
+            position: absolute;
+            left: 10px;
+            top: 0;
+        }
+        
+        #sidebar-user-avatar {
+            img {
+                width: 50px;
+                border-radius: 50%;
+                border: 2px solid #ddd;
+            }
+        }
+
+        #sidebar-user-rank {
+            img {
+                width: 56px;
+            } 
+        }
+
+        .user-name {
+            padding: 12px 0;
+            color: $default-color;
+            font-size: 1.3em;
+            vertical-align: bottom;
+            margin-top: 15px;
+        }
+    }
+
+    .wealth-row {
+        img {
+            left: 42px;
+            height: 20px;
+        }
+    }
+}
+
+#stars {
+    .fa {
+        color: #e7cb36;
+        font-size: 16px;
+    }
+}
+.user-wealth {
+    font-size: 18px;
+    font-weight: 600px;
+    color: #e7cb36;
+}
+
+.sidebar{
+    background: rgba($sidebar-bg-color, .9);
+    height: 100%;
+    min-height: 100%;
+    position: fixed;
+    width: $sidebar-width;
+    overflow: hidden;
+    display: block;
+    z-index: 999;
+    margin-top: 40px;
+    left: 0;
+
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+    transition: .6s;
+
+    &.menu-collapsed{
+        left: -$sidebar-width;
+        //修改宽度可以显示窄版的菜单
+        //width: 0;
+        a.sidebar-list-link b{
+            display: none;  
+        }
+        .sidebar-sublist{
+            position: absolute;
+            top: -1px;
+            left: 52px;
+            //width: 0;
+            display: block;
+            overflow: hidden; 
+        }
+    }
+    .nav{
+        height: 100%;
+        // padding-bottom: 60px;
+        flex-wrap: nowrap;
+    }
+}
+
+.sidebar-list-item {
+    display: block;
+    position: relative;
+    float: none;
+    padding: 0;
+    // border-bottom: 1px solid rgba($main-color,0.5);
+    // box-shadow: 0 1px 0 0 rgba($default-color,0.1);
+}
+
+a.sidebar-list-link {
+    display: block;
+    height: 42px;
+    padding-left: 18px !important;
+    padding-top: 0 !important;
+    text-shadow: none;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color:$default-color;
+    line-height: 42px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    i {
+        margin-right: 16px;
+        width: 18px;
+        display: inline-block;
+        // line-height: 42px;
+        // font-size: 18px;
+        text-align: center;
+    }
+    b {
+        display: block;
+        opacity: 1;
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        text-shadow: none;
+        font-size: 18px;
+        position: absolute;
+        right: 10px;
+        top: 14px;
+        padding: 0;
+        text-align: center;
+        color:$default-color;
+        -webkit-transition: -webkit-transform 0.2s linear;
+        -moz-transition: -moz-transform 0.2s linear;
+        -ms-transition: -ms-transform 0.2s linear;
+        -o-transition: -o-transform 0.2s linear;
+        transition: transform 0.2s linear;
+    }
+    &:hover{
+         background-color: $sidebar-item-active-bg-color;
+    }
+}
+
+.sidebar-list-item.sidebar-item-expanded>.sidebar-list-link b,
+.sidebar-sublist-item.sidebar-item-expanded>.sidebar-list-link b{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.sidebar-sublist{
+    display: none;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    li {
+        display: block;
+        float: none;
+        padding: 0;
+        border-bottom: none;
+        position: relative;
+        border-bottom: 1px solid rgba($main-color,0.7);
+        &:last-child{
+            border-bottom: none;
+        }
+        a {
+            display: block;
+            text-shadow: none;
+            font-size: 13px;
+            text-decoration: none;
+            color: $default-color;
+            padding-left: 50px !important;      
+            height: 42px;
+            line-height: 42px; 
+            &:before{
+                font-family: FontAwesome;
+                content: "\f1db";
+                margin-right: 10px;
+                font-size: 10px;
+            } 
+            &:hover{
+                background-color: $main-color; 
+            }
+        }
+    }
+    .subitem-submenu-list li {
+        border-top: 1px solid rgba($main-color, 0.7);
+        a{
+            padding-left: 65px !important;    
+        }
+    }
+}
+
+.sidebar-item-expanded>ul.sidebar-sublist {
+    background-color: rgba($main-color, 0.5);
+}
+
+.subitem-submenu-link .fa {
+    top: 14px;
+}
+
+.sidebar-hover-elem{
+  width: 4px;
+  background: $sidebar-item-active-bg-color;
+  position: absolute;
+  top: -150px;
+  left: 0;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  transition-property: top, height;
+  height: 36px;
+  display: block;
+}
+// .sidebar.menu-collapsed .sidebar-hover-elem{
+//  left: 46px;
+// }
+
+.active-link{
+    background-color: $sidebar-item-active-bg-color;
+}
+
+
+@media (max-width: 544px) {
+  .sidebar.menu-collapsed {
+    // width: 0;
+  }
+  .sidebar-hover-elem, .sidebar-select-elem {
+    display: none;
+  }
+}
+
+
+.login-links-row{
+    color: #fff;
+    padding-left: 18px !important;
+    height: 42px;
+    //border-bottom: 1px solid #ddd;
+    //margin-bottom: 5px;
+
+    .fa{
+        line-height: 50px;
+        width: 16px;
+        margin-right: 14px;
+        text-align: center;
+    }
+
+    a {
+        line-height: 50px;
+        color: #fff;
+    }
+}
+
+.seprator {
+    margin: 3px 10px;
+    border-bottom: 1px solid #fff;
+}

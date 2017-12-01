@@ -1,0 +1,71 @@
+:host {
+    display: block;
+}
+
+.title {
+    position: absolute;
+    bottom: 35px;
+    text-align: center;
+    width: 100vw;
+    font-size: 1.3em;
+    color: #222;
+    text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;  
+}
+
+.more-link {
+    h4 {
+        margin-right: 2px;
+        display: inline-block;
+    }
+    .fa {
+        display: inline-block;
+    }
+}
+
+.drama {
+    .item {
+        overflow: hidden;
+    }
+    a {
+        color: #222;
+    }
+    .pic {
+        position: relative;
+    }
+    .bar {
+        position: absolute;
+        bottom: 0;
+        height: 68px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .2);
+        color: #fff;
+        padding: 4px 6px;
+        text-align: right;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    }
+    .title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .vc {
+        span {
+            margin-left: 4px;
+            color: #eeee21;
+            font-weight: 600;
+        }
+
+        &.hot {
+            span {
+                color: #ef2424;
+            }
+        }
+    }
+
+}
+

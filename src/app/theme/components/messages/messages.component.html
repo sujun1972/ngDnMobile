@@ -1,0 +1,63 @@
+
+<ul class="notifications"> 
+ 
+    <li class="dropdown message-menu">
+        <!-- <a href class="dropdown-toggle notification" data-toggle="dropdown" aria-expanded="false"> -->
+        <a routerLink="/pages/favorites" class="dropdown-toggle notification" >
+            <!-- <i class="fa fa-folder-open-o"></i> -->
+            <i class="dn-icon icon-folder"></i>
+            <!-- <span *ngIf="user.data.info[0].UID != 0 || user.data.info[0].ScjNum != 0">{{ user.data.info[0].ScjNum }}</span> -->
+            <div class="pulsate"></div>
+        </a>
+        <!-- <div class="top-dropdown-menu dropdown-menu">
+            <i class="dropdown-arr"></i>
+            <div class="header clearfix">
+                <span>消息</span>
+                <a href class="transition">全部标记为已读</a>
+                <a href class="transition">设置</a>
+            </div>
+            <div class="list" slim-scroll [slimScrollOptions]="{height: 250}">
+                <a *ngFor="let message of messages" routerLink="{{message.link}}" class="transition">
+                    <img src="{{ ( message.image || (message.name | profilePicture)) }}">
+                    <div class="list-content">
+                        <h3>{{message.author}} <span class="pull-right"><i class="fa fa-clock-o"></i> {{message.published}}</span></h3>
+                        <p class="action">{{message.action}}<span class="quote">{{ message.quote }}</span></p>
+                        <p class="text">{{message.text}}</p>
+                    </div>
+                </a>
+            </div> 
+            <div class="footer">
+                <a routerLink="/pages/messages" class="transition">查看全部消息</a>
+            </div> 
+        </div> -->
+    </li>
+
+    <li class="dropdown notification-menu">
+        <!-- <a href class="dropdown-toggle notification" data-toggle="dropdown" aria-expanded="false"> -->
+        <a routerLink="/pages/messages" class="dropdown-toggle notification" >
+            <!-- <i class="fa fa-envelope-o"></i> -->
+            <i class="dn-icon icon-message"></i>
+            <!-- <span *ngIf="user.data.info[0].UID != 0 || user.data.info[0].MessageNum != 0">{{ user.data.info[0].MessageNum }}</span> -->
+            <div class="pulsate"></div>
+        </a>
+
+        <!-- <div class="top-dropdown-menu dropdown-menu">
+            <i class="dropdown-arr"></i>
+            <div class="header clearfix">
+                <span>收藏夹</span>
+            </div>
+            <div class="list" slim-scroll [slimScrollOptions]="{height: 250}"> 
+                <a *ngFor="let notification of notifications" href class="transition">
+                    <img src="{{ ( notification.image || (notification.name | profilePicture)) }}">                    
+                    <div class="list-content">
+                        <h3>{{notification.name}} <span class="pull-right"> {{notification.time}}</span></h3>
+                        <p>{{notification.text}}</p>
+                    </div>
+                </a>
+            </div> 
+            <div class="footer">
+                <a href="#" class="transition">查看全部收藏</a>
+            </div> 
+        </div>  -->
+    </li>
+</ul>

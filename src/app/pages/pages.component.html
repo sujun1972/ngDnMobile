@@ -1,0 +1,20 @@
+<dn-navbar></dn-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <dn-menu></dn-menu>
+        <div class="main-wrapper" [ngClass]="{'menu-collapsed': isMenuCollapsed}">
+            <div class="dn-overlay" *ngIf="!isMenuCollapsed" (click)="hideMenu()"></div>
+            <!-- <div class="main" [@routerTransition]="getState(o)">
+                <router-outlet #o="outlet"></router-outlet>
+            </div> -->
+            <div class="main">
+                <router-outlet #o="outlet"></router-outlet>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
+
+<!-- <az-back-top position="200"></az-back-top> -->

@@ -1,0 +1,99 @@
+<div id="cat-menu" class="cat-menu" [class.hasGoBackButton]="hasGoBackButton">
+    <div id="go-back" *ngIf="hasGoBackButton">
+        <i class="dn-icon icon-up rotate rotate-270" (click)="goBack();"></i>
+    </div>
+    <div class="inner">
+        <ul class="nav cat-menu">
+            <li class="catmenu-list-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a routerLink="/pages/index"><span>主页</span></a>
+            </li>
+            <li class="catmenu-list-item">
+                <a href="//www.dnlive.tv" target="_blank"><span>直播</span></a>
+            </li>
+            <li class="catmenu-list-item">
+                <a href="//www.duonao.tv" target="_blank"><span>新闻</span></a>
+            </li>
+            <li *ngFor="let item of catMenuItems" id="chn-{{item.id}}" class="catmenu-list-item" [ngClass]="{'active': item.id == channelId}">
+                <a routerLink="{{ item.routerLink }}/{{ item.id}}"><span>{{ item.title }}</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="category-expander">
+        <i class="dn-icon icon-up rotate"  (click)="toggleCategoryList();" [ngClass]="{'rotate-180': catlogListState == 'out'}"></i>
+    </div>
+</div>
+
+<div id="cat-sub-menu" *ngIf="showSubmenus">
+    <ul class="sec-nav cat-menu">
+        <li *ngFor="let subItem of subMenu" class="catmenu-list-item" id="cat-{{ subItem.id }}" [ngClass]="{'active': subItem.Path == id}">
+            <a routerLink="/pages/list/{{ subItem.Path }}"><span>{{ subItem.ClassName }}</span></a>
+        </li>
+    </ul>
+</div>
+
+<div id="category-list" [@slideInOut]="catlogListState">
+    <div class="card">
+        <div class="promotion">
+            <a href="http://www.duonao.tv" target="_blank">
+                <img src="http://www.duonao.tv/images/logo.jpg" height=40>
+            </a>
+            <a href="http://www.dnlive.tv" target="_blank">
+                <img src="http://www.dnlive.tv/images/1234.png" height=40>
+            </a>
+        </div>
+        <!-- <perfect-scrollbar style="max-height: 100%;" [config]="PERFECT_SCROLLBAR_CONFIG"> -->
+        <div>
+            <div class="overlay-content">
+                <div *ngFor="let item of catMenuItems; let i = index" class="row cat-row">
+                    <div class="col-3 left text-center" [ngClass]="{'first': i == 0}">
+                        <a [ngClass]="{'active': item.id == channelId}" routerLink="{{ item.routerLink }}/{{ item.id }}">{{ item.title }}</a>
+                    </div>
+                    <div class="col-9 right" [ngClass]="{'first': i == 0}">
+                        <div *ngIf="item.id == 1 && channels">
+                            <div *ngFor="let subitem of channels.FilmList">
+                                <a  [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="item.id == 2 && channels">
+                            <div *ngFor="let subitem of channels.TVList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="item.id == 3 && channels">
+                            <div *ngFor="let subitem of channels.VarietyList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        
+                        <div *ngIf="item.id == 4 && channels">
+                            <div *ngFor="let subitem of channels.AnimeList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="item.id == 5 && channels">
+                            <div *ngFor="let subitem of channels.SportList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="item.id == 6 && channels">
+                            <div *ngFor="let subitem of channels.DocumentaryList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="item.id == 7 && channels">
+                            <div *ngFor="let subitem of channels.CircleList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="item.id == 8 && channels">
+                            <div *ngFor="let subitem of channels.GameList">
+                                <a [ngClass]="{'active': subitem.Path == id}" routerLink="{{ item.routerLink }}/{{ subitem.Path }}">{{ subitem.ClassName }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </perfect-scrollbar> -->
+    </div>
+</div>
